@@ -1,0 +1,42 @@
+ <article>
+    <h2>Administration</h2>    
+    <div><?= ucfirst($_SESSION["pseudo"]) ?></div>
+    <!--Deconnexion-->
+    <a href="?page=unlog&unlog=true">
+        <button type="button">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+    </a>
+
+    <p>
+        Page administration.
+    </p>
+</article>
+
+<article id="image_admin">
+    <form id="image_upload" action="datas/" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Envoyer une image</legend>
+            <label><input type="hidden" name="requeteSelection" id="requeteSelection" value="insertImg"></label>
+            <p>
+                Selectionnez votre image :
+            </p>
+            <label><input type="file" name="imgPath" id="imgPath" required></label>
+            <p>
+                Destination :
+            </p>
+            <label><input type="radio" name="folderPath" id="folderPath" value="img" checked required> Dossier 'img'</label>
+            <label><input type="radio" name="folderPath" id="folderPath" value="img/illustrations" required> Dossier 'illustrations'</label>
+
+            <div id="errorForm"><p></p></div>
+            
+            <button type="submit">
+                Envoyer
+            </button>
+        </fieldset>
+    </form> 
+
+    <div id="admin_show_image">
+        <!--liste d'image générée par js-->
+    </div>
+</article>
